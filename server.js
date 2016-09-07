@@ -23,17 +23,17 @@ app.use(express.static('./public'));
 // -------------------------------------------------
 
 // MongoDB Configuration configuration
-// mongoose.connect('mongodb://admin:reactrocks@ds023593.mlab.com:23593/heroku_pg676kmk');
-// var db = mongoose.connection;
+mongoose.connect('mongodb://admin:heal@ds019866.mlab.com:19866/healit');
+var db = mongoose.connection;
 
-// db.on('error', function (err) {
-//     console.log('Mongoose Error: ', err);
-// });
+db.on('error', function (err) {
+    console.log('Mongoose Error: ', err);
+});
 
-// db.once('open', function () {
-//     console.log('Mongoose connection successful.');
-// });
-
+db.once('open', function () {
+    console.log('Mongoose connection successful.');
+});
+// --------------------------------------------------
 
 app.listen(PORT, function() {
     console.log("HeaLit is running on PORT: " + PORT);
