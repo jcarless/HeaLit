@@ -1,0 +1,27 @@
+{
+  "name": "healit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcarless/HeaLit.git"
+  },
+  "author": "Jerome Carless",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jcarless/HeaLit/issues"
+  },
+  "homepage": "https://github.com/jcarless/HeaLit#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "logger": "0.0.1",
+    "mongoose": "^4.6.0",
+    "morgan": "^1.7.0"
+  }
+}
