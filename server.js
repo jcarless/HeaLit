@@ -38,3 +38,6 @@ db.once('open', function () {
 app.listen(PORT, function() {
     console.log("HeaLit is running on PORT: " + PORT);
 });
+
+//routing
+require("./app/Routes/routes.js")(app);
