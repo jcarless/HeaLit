@@ -28,8 +28,12 @@ module.exports = function(app) {
         Question.find({})
             .exec(function(err, question){
                 res.render("quiz", {
-                    Q1: question[1].Question,
-                    O1: question[1].Options[0]
+                    Question1: question[1].Question,
+                    Option1: question[1].Options[0],
+                    Option2: question[1].Options[1],
+                    Option3: question[1].Options[2],
+                    Option4: question[1].Options[3]
+
                 });
             });
 
