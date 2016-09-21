@@ -13,14 +13,14 @@ module.exports = function(app) {
     app.get('/', function(req, res){
         var entry = new Question (test);
         entry.save(function(err, doc){
-            if(err) return handleError(err);
+            if(err) return err;
             //save
             else{
                 console.log(doc);
             }
         })
 
-    res.send("HealLit");
+    res.render("landingPage");
 
     });
 

@@ -4,9 +4,6 @@ var bodyParser = require('body-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 
-//Require Schemas
-// var Article = require('./server/model.js');
-
 // Create Instance of Express
 var app = express();
 var PORT = process.env.PORT || 3007;
@@ -20,7 +17,19 @@ app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
 app.use(express.static('./public'));
 
-// -------------------------------------------------
+// set up handlebars for express
+var exphbs = require('express-handlebars');
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main',
+    extname: '.handlebars',
+    layoutsDir: 'app/views/layouts'
+}));
+app.set('view engine', 'handlebars');
+app.set('views', __dirname + '/app/Views');
+
+// load the static files
+var staticContentFolder = __dirname + '/app/public';
+app.use(express.static(staticContentFolder));
 
 // MongoDB Configuration configuration
 mongoose.connect('mongodb://admin:heal@ds019866.mlab.com:19866/healit');
