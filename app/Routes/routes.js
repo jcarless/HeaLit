@@ -27,7 +27,10 @@ module.exports = function(app) {
     app.get('/quiz', function(req, res){
         Question.find({})
             .exec(function(err, question){
-                res.json(question);
+                res.render("quiz", {
+                    Q1: question[1].Question,
+                    O1: question[1].Options[0]
+                });
             });
 
     });
