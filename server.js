@@ -22,7 +22,7 @@ var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({
   defaultLayout: 'main',
     extname: '.handlebars',
-    layoutsDir: 'app/views/layouts'
+    layoutsDir: 'app/Views/layouts'
 }));
 app.set('view engine', 'handlebars');
 app.set('views', __dirname + '/app/Views');
