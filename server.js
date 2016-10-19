@@ -1,12 +1,13 @@
-// Include Server Dependencies
 var express = require('express');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 
-// Create Instance of Express
 var app = express();
-var PORT = process.env.PORT || 3007;
+var PORT = process.env.PORT || 3000;
+
+// Schema
+var Questions = require('./app/Model/Questions.js');
 
 // Run Morgan for Logging
 app.use(logger('dev'));
@@ -16,20 +17,6 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
 app.use(express.static('./public'));
-
-// set up handlebars for express
-var exphbs = require('express-handlebars');
-app.engine('handlebars', exphbs({
-  defaultLayout: 'main',
-    extname: '.handlebars',
-    layoutsDir: 'app/Views/layouts'
-}));
-app.set('view engine', 'handlebars');
-app.set('views', __dirname + '/app/Views');
-
-// load the static files
-var staticContentFolder = __dirname + '/app/public';
-app.use(express.static(staticContentFolder));
 
 // MongoDB Configuration configuration
 mongoose.connect('mongodb://admin:heal@ds019866.mlab.com:19866/healit');
@@ -44,9 +31,9 @@ db.once('open', function () {
 });
 // --------------------------------------------------
 
-app.listen(PORT, function() {
-    console.log("HeaLit is running on PORT: " + PORT);
-});
-
 //routing
 require("./app/Routes/routes.js")(app);
+
+app.listen(PORT, function() {
+    console.log("Healit 2 listening on PORT: " + PORT);
+});
